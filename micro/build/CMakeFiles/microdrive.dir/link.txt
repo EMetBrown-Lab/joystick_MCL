@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -shared  -o microdrive.cpython-312-x86_64-linux-gnu.so CMakeFiles/microdrive.dir/microdrive_pybind.cpp.o  /usr/lib/libmicrodrive.so 
