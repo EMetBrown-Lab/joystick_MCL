@@ -1,4 +1,4 @@
-# Install script for directory: /home/m.lavaud/Documents/joystick_MCL/micro
+# Install script for directory: /home/brownianxgames/joystick/joystick_MCL/micro
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/m.lavaud/Documents/joystick_MCL/micro/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/brownianxgames/joystick/joystick_MCL/micro/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
