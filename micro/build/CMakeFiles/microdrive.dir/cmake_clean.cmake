@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/microdrive.dir/microdrive_pybind.cpp.o"
   "CMakeFiles/microdrive.dir/microdrive_pybind.cpp.o.d"
-  "microdrive.cpython-312-x86_64-linux-gnu.so"
+  "microdrive.cpython-39-x86_64-linux-gnu.so"
   "microdrive.pdb"
 )
 
