@@ -210,38 +210,50 @@ class MainWindow(QtWidgets.QMainWindow):
     # Function to reset the axes
     def reset_axis(self):
         # Move each axis to a specific position
-        microdrive.MCL_MD_MoveThreeAxes(
-            1,
-            self.maxVelocity,
-            25,
-            2,
-            self.maxVelocity,
-            25,
-            3,
-            self.maxVelocity,
-            50,
-            self.handle,
-        )
+        def _reset_axis():
+            microdrive.MCL_MD_MoveThreeAxes(
+                1,
+                self.maxVelocity,
+                25,
+                2,
+                self.maxVelocity,
+                25,
+                3,
+                self.maxVelocity,
+                50,
+                self.handle,
+            )
 
-        # Move each axis to another specific position
-        func_back = lambda: microdrive.MCL_MD_MoveThreeAxes(
-            1,
-            self.maxVelocity,
-            -12.5,
-            2,
-            self.maxVelocity,
-            -12.5,
-            3,
-            self.maxVelocity,
-            -25,
-            self.handle,
-        )
+            # Move each axis to another specific position
+            func_back = lambda: microdrive.MCL_MD_MoveThreeAxes(
+                1,
+                self.maxVelocity,
+                -12.5,
+                2,
+                self.maxVelocity,
+                -12.5,
+                3,
+                self.maxVelocity,
+                -25,
+                self.handle,
+            )
 
-        self.timer_back = QtCore.QTimer.singleShot(26 * 1000, func_back)
+            self.timer_back = QtCore.QTimer.singleShot(26 * 1000, func_back)
 
-        self.timer_reset_position = QtCore.QTimer.singleShot(
-            (26 + 13) * 1000, self.zero_axis
-        )
+            self.timer_reset_position = QtCore.QTimer.singleShot(
+                (26 + 13) * 1000, self.zero_axis
+            )
+        
+        msgBox = QtWidgets.QMessageBox()
+        msgBox.setIcon(QMessageBox.Icon.Warning)
+        msgBox.setText("Please remove the objective before resetting the axes.")
+        msgBox.setWindowTitle("Warning")
+        msgBox.setStandardButtons(QMessageBox.StandardButton.Ok | QMessageBox.StandardButton.Cancel)
+
+        returnValue = msgBox.exec()
+        if returnValue == QMessageBox.StandardButton.Ok:
+            _reset_axis()
+
 
     # Function to move the axes to the home position
     def go_home(self):
@@ -264,6 +276,7 @@ class MainWindow(QtWidgets.QMainWindow):
             -(z - self.z0) * self.stepSize,
             self.handle,
         )
+
 
     def zero_axis(self):
         # Get the current position of each axis
