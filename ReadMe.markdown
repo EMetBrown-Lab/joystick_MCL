@@ -1,14 +1,23 @@
-Code for having a joystick to controll a microcontroller from MadCity labs with a serial number : RM21 Classic MCL-uS2671, LP200: MCLS04446.
+# Joystick Control for MadCity Labs Microcontroller
 
-You should be able to use the app in the releases directly, if not you can compile the code yourself by just using the makefile.
+This project provides code to control a microcontroller from MadCity Labs using a joystick. It is compatible with devices having the serial numbers: **RM21 Classic MCL-uS2671** and **LP200: MCLS04446**.
 
-Permits to control presisely the displacement by controlling how much the stage should move when pressing a button.
-When using continuous move the stage will stop when you release the button.
-Press the stop button to stop the stage.
+## Getting Started
 
-In the menu you can find:
-Reset_axis -> set the axis to (0,0,0)
-Go home -> Go the the (0,0,0) position using a fast 3 axes movement, 
-Reset Axis -> Make full range of motion displacement to go back to the center of the stage.
+You can directly use the application from the [Releases](#) section. If the pre-built application does not work, you can compile the code yourself using the provided `Makefile`.
+
+## Features
+
+- **Precise Displacement Control**: Adjust the stage movement precisely by specifying how far the stage should move with each button press.
+- **Continuous Movement**: Keep the stage moving as long as the button is held down. The stage stops moving when you release the button.
+- **Stop Movement**: Press the stop button to immediately halt the stage.
+
+## Menu Options
+
+- **Reset Axis**: Set the axis coordinates to `(0, 0, 0)`.
+- **Go Home**: Quickly move to the `(0, 0, 0)` position using a fast 3-axis motion.
+- **Reset Axis**: Perform a full range of motion to return to the center of the stage.
+
+## Screenshot
 
 <img src="screenshot.png" width="250">
