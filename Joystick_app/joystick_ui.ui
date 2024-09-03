@@ -23,8 +23,27 @@
       <height>25</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>stop all motion</string>
+    </property>
     <property name="text">
      <string>STOP</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="reset_progress_bar">
+    <property name="geometry">
+     <rect>
+      <x>23</x>
+      <y>231</y>
+      <width>171</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+    <property name="textVisible">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QWidget" name="">
@@ -39,6 +58,9 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QCheckBox" name="Continuous_CheckBox">
+       <property name="toolTip">
+        <string>Permits for direct control of the motion through the push of the buttons</string>
+       </property>
        <property name="text">
         <string>Continuous mode</string>
        </property>
@@ -60,6 +82,9 @@
          </item>
          <item>
           <widget class="QLineEdit" name="speed_value">
+           <property name="toolTip">
+            <string>maximum 2mm/s</string>
+           </property>
            <property name="text">
             <string>2</string>
            </property>
@@ -71,6 +96,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="toolTip">
+            <string>should be between 0 and 50mm</string>
+           </property>
            <property name="text">
             <string>increment (mm)</string>
            </property>
@@ -79,7 +107,7 @@
          <item>
           <widget class="QLineEdit" name="increment_value">
            <property name="toolTip">
-            <string>Value should be inferior to 50 mm, the maximal range of motion along z axis</string>
+            <string>should be between 0 and 50mm</string>
            </property>
            <property name="text">
             <string>2</string>
@@ -147,9 +175,9 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>74</x>
+      <x>67</x>
       <y>112</y>
-      <width>82</width>
+      <width>97</width>
       <height>131</height>
      </rect>
     </property>

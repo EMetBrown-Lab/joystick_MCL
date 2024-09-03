@@ -13,6 +13,21 @@ class MainWindow(QtWidgets.QMainWindow):
         # Load the UI page
         uic.loadUi("joystick_ui.ui", self)
 
+        self.reset_progress_bar.setStyleSheet("""
+            QProgressBar {
+                border-style: solid;
+                border-color: grey;
+                border-radius: 7px;
+                border-width: 2px;
+                text-align: center;
+            }
+            QProgressBar::chunk {
+                width: 2px;
+                background-color: #de7c09;
+                margin: 3px;
+            }
+        """)
+        self.reset_progress_bar.hide()
         # Define error codes
         self.errorcodes = {
             0: "No Error",
@@ -37,7 +52,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Check if the handle is valid
         if self.handle == 0:
-            print("here")
             self.ErrorBox(-9)
 
         # Get axis and encoder information
@@ -237,7 +251,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 -25,
                 self.handle,
             )
-
+            
             self.timer_back = QtCore.QTimer.singleShot(26 * 1000, func_back)
 
             self.timer_reset_position = QtCore.QTimer.singleShot(
@@ -253,6 +267,11 @@ class MainWindow(QtWidgets.QMainWindow):
         returnValue = msgBox.exec()
         if returnValue == QMessageBox.StandardButton.Ok:
             _reset_axis()
+        
+        self.pbar_timer = QtCore.QTimer()
+        self.pbar_timer.timeout.connect(self.handle_timer)
+        self.pbar_interval = 40*1000  / 100 # 40 * 1000 ms / 100 steps
+        self.start_progress()
 
 
     # Function to move the axes to the home position
@@ -291,3 +310,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ErrorBox(error)
         microdrive.MCL_MD_ResetEncoders(self.handle)
         self.actuate_position()
+
+    def start_progress(self):
+        self.reset_progress_bar.setRange(0, 100)
+        self.reset_progress_bar.setValue(0)
+        self.reset_progress_bar.show()
+        self.pbar_timer.start(self.pbar_interval)
+
+    def handle_timer(self):
+        value = self.reset_progress_bar.value()
+        if value < 100:
+            self.reset_progress_bar.setValue(value+1)
+        else:
+            self.pbar_timer.stop()
+            self.reset_progress_bar.hide()
+        
+
