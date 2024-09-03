@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets
+from PyQt6 import QtWidgets, QtGui
 
 from joystick_ui import MainWindow
 
@@ -13,6 +13,8 @@ except:
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
+    app.setWindowIcon(QtGui.QIcon('logo.svg'))
     main = MainWindow()
+    main.setWindowTitle("MadCity Labs joystick")
     main.show()
     sys.exit(app.exec())
