@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dmicrodrive_EXPORTS
 
-CXX_INCLUDES = -I/home/brownianxgames/miniconda3/envs/joystick/include -I/home/brownianxgames/miniconda3/envs/joystick/include/python3.12
+CXX_INCLUDES = -I/home/m.lavaud/miniconda3/envs/pyqt/include -I/home/m.lavaud/miniconda3/envs/pyqt/include/python3.9
 
 CXX_FLAGS = -fPIC -std=gnu++14
 
