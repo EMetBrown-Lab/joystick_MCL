@@ -1,5 +1,5 @@
 # Import necessary libraries
-from PyQt6 import QtWidgets, uic, QtGui, QtCore
+from PyQt6 import QtWidgets, uic, QtCore
 from PyQt6.QtWidgets import QMessageBox
 import microdrive
 import time
@@ -10,7 +10,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, *args, **kwargs) -> None:
         # Initialize the parent class
         super(MainWindow, self).__init__(*args, **kwargs)
-
         # Load the UI page
         uic.loadUi("joystick_ui.ui", self)
 
