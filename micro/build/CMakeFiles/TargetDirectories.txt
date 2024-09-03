@@ -1,3 +1,0 @@
-/home/m.lavaud/Documents/joystick_MCL/micro/build/CMakeFiles/microdrive.dir
-/home/m.lavaud/Documents/joystick_MCL/micro/build/CMakeFiles/edit_cache.dir
-/home/m.lavaud/Documents/joystick_MCL/micro/build/CMakeFiles/rebuild_cache.dir
